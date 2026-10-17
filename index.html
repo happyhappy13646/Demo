@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DEMO — Your Vision. My Edit.</title>
+<style>
+:root{--bg:#0B0B0D;--card:#151519;--line:#26262d;--txt:#fff;--mut:#9a9aa6;--acc:#8B5CF6;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.6 -apple-system,"Segoe UI",Inter,Helvetica,Arial,sans-serif}
+h1,h2,h3{font-family:"Arial Black",Impact,"Segoe UI",sans-serif;letter-spacing:-.02em;line-height:1.05;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);border:1px solid rgba(139,92,246,.45);padding:5px 12px;border-radius:99px;background:rgba(139,92,246,.08)}
+.mut{color:var(--mut)}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 15px inherit;font-family:inherit;padding:13px 26px;border-radius:10px;background:var(--acc);color:#fff;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(139,92,246,.35)}
+.btn.o{background:transparent;border:1px solid var(--line)}
+.btn.o:hover{border-color:var(--acc);box-shadow:none}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(11,11,13,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font:900 22px "Arial Black",Impact,sans-serif;letter-spacing:.14em}
+.logo i{color:var(--acc);font-style:normal}
+.links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--mut)}
+.links a:hover{color:#fff}
+@media(max-width:760px){.links a.h{display:none}.links{gap:14px}}
+.hero{padding:110px 0 70px;background:radial-gradient(700px 380px at 75% 0,rgba(139,92,246,.22),transparent 70%)}
+.hero h1{font-size:clamp(44px,9vw,92px);margin:22px 0 18px}
+.hero h1 span{color:var(--acc)}
+.hero p{max-width:560px;font-size:18px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 56px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;border-top:1px solid var(--line);padding-top:28px}
+.stats b{display:block;font:900 32px "Arial Black",sans-serif}
+.stats span{font-size:13px;color:var(--mut)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.head h2{font-size:clamp(30px,5vw,46px);margin-top:12px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{background:none;border:1px solid var(--line);color:var(--mut);padding:7px 16px;border-radius:99px;cursor:pointer;font:inherit;font-size:13px}
+.filters button.on,.filters button:hover{color:#fff;border-color:var(--acc);background:rgba(139,92,246,.12)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.work{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s}
+.work:hover{transform:translateY(-5px);border-color:rgba(139,92,246,.6)}
+.thumb{aspect-ratio:16/10;position:relative;display:grid;place-items:center}
+.thumb.v{aspect-ratio:16/10}
+.play{width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);display:grid;place-items:center;border:1px solid rgba(255,255,255,.3);transition:.2s}
+.work:hover .play{background:var(--acc);transform:scale(1.1)}
+.play:after{content:"";border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.dur{position:absolute;right:12px;bottom:10px;font-size:12px;background:rgba(0,0,0,.6);padding:2px 8px;border-radius:6px}
+.work .in{padding:16px 18px}
+.work h3{font-size:17px;font-family:inherit;font-weight:700;letter-spacing:0}
+.work small{color:var(--mut)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+.box .n{font:900 14px "Arial Black",sans-serif;color:var(--acc);letter-spacing:.1em}
+.box h3{font:700 19px inherit;font-family:inherit;margin:10px 0 8px;letter-spacing:0}
+.box p{margin:0;color:var(--mut);font-size:15px}
+.alt{background:var(--card);border-block:1px solid var(--line)}
+.alt .box{background:var(--bg)}
+.q{font-size:16px;color:#e6e6ec}
+.who{margin-top:16px;font-size:13px;color:var(--mut)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:760px){.contact{grid-template-columns:1fr}section{padding:60px 0}}
+form{display:grid;gap:12px}
+input,select,textarea{width:100%;background:var(--card);border:1px solid var(--line);color:#fff;border-radius:10px;padding:13px 14px;font:inherit}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--acc)}
+.ok{color:#4ade80;font-size:14px;min-height:20px}
+footer{border-top:1px solid var(--line);padding:34px 0;font-size:14px;color:var(--mut)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+/* admin */
+#admin{display:none;padding:40px 0 80px}
+body.adm #site{display:none}body.adm #admin{display:block}
+.ah{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.ah h2{font-size:30px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:26px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.kpi b{display:block;font:900 28px "Arial Black",sans-serif}
+.kpi span{font-size:13px;color:var(--mut)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:22px}
+.panel h3{font:700 18px inherit;font-family:inherit;letter-spacing:0;margin-bottom:14px}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
+th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--mut);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.x{background:none;border:1px solid var(--line);color:var(--mut);border-radius:8px;padding:4px 10px;cursor:pointer}
+.x:hover{color:#f87171;border-color:#f87171}
+.add{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px}
+@media(max-width:760px){.add{grid-template-columns:1fr}}
+.msg{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.msg:last-child{border:0}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top" onclick="show(0)">DEMO<i>.</i></a>
+  <div class="links">
+    <a class="h" href="#work" onclick="show(0)">Work</a><a class="h" href="#services" onclick="show(0)">Services</a><a class="h" href="#process" onclick="show(0)">Process</a>
+    <a href="#admin" onclick="show(1)" title="Admin dashboard">Admin</a>
+    <a class="btn" style="padding:9px 18px;font-size:14px;color:#fff" href="#contact" onclick="show(0)">Hire me</a>
+  </div>
+</div></nav>
+
+<div id="site">
+<header class="hero" id="top"><div class="wrap">
+  <span class="tag">Freelance Video Editor &amp; Content Creator</span>
+  <h1>Your Vision.<br><span>My Edit.</span></h1>
+  <p class="mut">Cinematic storytelling, sharp pacing and scroll-stopping cuts for YouTubers, Reels creators, influencers and brands who want their content to feel premium.</p>
+  <div class="cta"><a class="btn" href="#work">View my work</a><a class="btn o" href="#contact">Start a project</a></div>
+  <div class="stats"><div><b>250+</b><span>Videos delivered</span></div><div><b>40M+</b><span>Views generated</span></div><div><b>48h</b><span>Typical turnaround</span></div><div><b>5.0★</b><span>Client rating</span></div></div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <div class="head"><div><span class="tag">Portfolio Demo</span><h2>Selected work</h2></div><div class="filters" id="filters"></div></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="services" class="alt"><div class="wrap">
+  <div class="head"><div><span class="tag">Services</span><h2>What I do best</h2></div></div>
+  <div class="cols">
+    <div class="box"><div class="n">01</div><h3>YouTube Editing</h3><p>Long-form storytelling with tight pacing, retention-focused cuts, sound design and custom thumbnails.</p></div>
+    <div class="box"><div class="n">02</div><h3>Reels &amp; Shorts</h3><p>Vertical, fast and captioned edits built to hook in the first second and drive shares.</p></div>
+    <div class="box"><div class="n">03</div><h3>Brand &amp; Ads</h3><p>Polished promo, product and testimonial videos with clean motion graphics and color grading.</p></div>
+    <div class="box"><div class="n">04</div><h3>Color &amp; Sound</h3><p>Cinematic grading, audio cleanup and mixing so every frame and every word lands.</p></div>
+  </div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <div class="head"><div><span class="tag">Process</span><h2>Simple. Fast. Collaborative.</h2></div></div>
+  <div class="cols">
+    <div class="box"><div class="n">STEP 1</div><h3>Brief</h3><p>Share your footage, references and goals. We align on style and deadlines.</p></div>
+    <div class="box"><div class="n">STEP 2</div><h3>First cut</h3><p>Receive a draft with pacing, music and structure in place.</p></div>
+    <div class="box"><div class="n">STEP 3</div><h3>Revisions</h3><p>Feedback rounds until it matches your vision exactly.</p></div>
+    <div class="box"><div class="n">STEP 4</div><h3>Delivery</h3><p>Final exports in every format you need, ready to publish.</p></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <div class="head"><div><span class="tag">Testimonials</span><h2>Creators love the result</h2></div></div>
+  <div class="cols">
+    <div class="box"><p class="q">“My retention jumped noticeably after the first video. The edits feel effortless and professional.”</p><div class="who">Alex R. — YouTuber, 480K subscribers</div></div>
+    <div class="box"><p class="q">“Fast, communicative and creative. Our Reels finally look like a real brand.”</p><div class="who">Maya T. — Lifestyle influencer</div></div>
+    <div class="box"><p class="q">“Delivered a launch video ahead of schedule. Exactly what we pictured, only better.”</p><div class="who">Jordan K. — Founder, DTC brand</div></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <div><span class="tag">Contact</span><h2 style="font-size:clamp(30px,5vw,46px);margin:12px 0 16px">Let’s make something great.</h2>
+  <p class="mut">Tell me about your project and I’ll reply within 24 hours with ideas, timeline and a quote.</p>
+  <p class="mut">hello@demo-editor.example<br>Available worldwide · Remote</p></div>
+  <form id="cf">
+    <input id="cn" placeholder="Your name" required>
+    <input id="ce" type="email" placeholder="Email address" required>
+    <select id="cp"><option>YouTube video</option><option>Reels / Shorts</option><option>Brand / Ad</option><option>Something else</option></select>
+    <textarea id="cm" rows="4" placeholder="Tell me about your project" required></textarea>
+    <button class="btn" type="submit">Send inquiry</button><div class="ok" id="ok"></div>
+  </form>
+</div></section>
+</div>
+
+<main id="admin"><div class="wrap">
+  <div class="ah"><div><span class="tag">Portfolio Demo</span><h2 style="margin-top:10px">DEMO Admin</h2></div><a class="btn o" href="#top" onclick="show(0)">← Back to site</a></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="panel"><h3>Add project</h3>
+    <div class="add"><input id="an" placeholder="Project title"><select id="ac"><option>YouTube</option><option>Reels</option><option>Business</option></select><input id="ad" placeholder="Duration (e.g. 8:20)"><button class="btn" onclick="addP()">Add</button></div></div>
+  <div class="panel"><h3>Projects</h3><div class="scroll"><table><thead><tr><th>Title</th><th>Category</th><th>Length</th><th></th></tr></thead><tbody id="pt"></tbody></table></div></div>
+  <div class="panel"><h3>Inquiries</h3><div id="inq"></div></div>
+  <p class="mut" style="font-size:13px">Demo dashboard · changes are saved only in this browser.</p>
+</div></main>
+
+<footer><div class="wrap"><div><span class="logo" style="font-size:16px">DEMO<i>.</i></span> &nbsp; Your Vision. My Edit.</div><div>© 2026 DEMO · <span class="tag" style="padding:2px 9px">Portfolio Demo</span></div></div></footer>
+
+<script>
+var G=[["#8B5CF6","#1d1042"],["#5b21b6","#0B0B0D"],["#a78bfa","#2a1a5e"],["#6d28d9","#151519"],["#7c3aed","#3b0764"],["#4c1d95","#8B5CF6"]];
+var P=[{t:"I Survived 24 Hours in the Desert",c:"YouTube",d:"14:32"},{t:"Morning Routine — Cinematic Reel",c:"Reels",d:"0:28"},{t:"Product Launch Promo",c:"Business",d:"1:15"},{t:"Travel Vlog: Tokyo Nights",c:"YouTube",d:"11:08"},{t:"Fitness Transformation Short",c:"Reels",d:"0:45"},{t:"Brand Story — Founder Interview",c:"Business",d:"3:40"}];
+var I=[],filt="All";
+try{var s=localStorage.getItem("demo_p");if(s)P=JSON.parse(s);var q=localStorage.getItem("demo_i");if(q)I=JSON.parse(q)}catch(e){}
+function save(){try{localStorage.setItem("demo_p",JSON.stringify(P));localStorage.setItem("demo_i",JSON.stringify(I))}catch(e){}}
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function grid(){
+  var cats=["All","YouTube","Reels","Business"];
+  document.getElementById("filters").innerHTML=cats.map(function(c){return '<button class="'+(c==filt?"on":"")+'" onclick="setF(\''+c+'\')">'+c+'</button>'}).join("");
+  document.getElementById("grid").innerHTML=P.filter(function(p){return filt=="All"||p.c==filt}).map(function(p,i){var g=G[i%G.length];
+    return '<div class="work"><div class="thumb" style="background:linear-gradient(135deg,'+g[0]+','+g[1]+')"><div class="play"></div><span class="dur">'+esc(p.d)+'</span></div><div class="in"><h3>'+esc(p.t)+'</h3><small>'+esc(p.c)+'</small></div></div>'}).join("")||'<p class="mut">No projects yet.</p>';
+}
+function setF(c){filt=c;grid()}
+function admin(){
+  document.getElementById("kpis").innerHTML=[[P.length,"Projects"],[I.length,"Inquiries"],["24h","Avg. response"],[P.filter(function(p){return p.c=="YouTube"}).length,"YouTube edits"]].map(function(k){return '<div class="kpi"><b>'+k[0]+'</b><span>'+k[1]+'</span></div>'}).join("");
+  document.getElementById("pt").innerHTML=P.map(function(p,i){return '<tr><td>'+esc(p.t)+'</td><td>'+esc(p.c)+'</td><td>'+esc(p.d)+'</td><td><button class="x" onclick="delP('+i+')">Delete</button></td></tr>'}).join("");
+  document.getElementById("inq").innerHTML=I.length?I.map(function(m){return '<div class="msg"><b>'+esc(m.n)+'</b> · <span class="mut">'+esc(m.e)+' · '+esc(m.p)+'</span><br>'+esc(m.m)+'</div>'}).join(""):'<p class="mut">No inquiries yet. Send one from the contact form to see it here.</p>';
+}
+function addP(){var t=document.getElementById("an").value.trim();if(!t)return;P.unshift({t:t,c:document.getElementById("ac").value,d:document.getElementById("ad").value||"0:00"});document.getElementById("an").value="";document.getElementById("ad").value="";save();grid();admin()}
+function delP(i){P.splice(i,1);save();grid();admin()}
+document.getElementById("cf").addEventListener("submit",function(e){e.preventDefault();
+  I.unshift({n:cn.value,e:ce.value,p:cp.value,m:cm.value});save();admin();e.target.reset();document.getElementById("ok").textContent="Thanks! Your inquiry was sent (demo).";});
+function show(a){document.body.classList.toggle("adm",!!a);if(a){admin();window.scrollTo(0,0)}}
+if(location.hash=="#admin")show(1);
+grid();admin();
+</script>
+</body>
+</html>
